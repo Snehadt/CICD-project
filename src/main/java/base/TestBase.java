@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import util.TestUtil;
 
 import java.io.FileInputStream;
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class TestBase {
     public static WebDriver driver;
     public static Properties prop;
+    public static DesiredCapabilities dc;
 
     public TestBase(){
         try {
@@ -31,16 +33,18 @@ public class TestBase {
     }
     public static void initialization(){
         String browserName = prop.getProperty("browser");
+        dc = new DesiredCapabilities();
         if(browserName.equals("chrome")){
-            WebDriverManager.chromedriver().setup();
-           ChromeOptions options = new ChromeOptions();
-            options.setHeadless(true);
-            driver = new ChromeDriver();
+            System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
         }
         else if(browserName.equals("FF")){
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
+        options.addArguments("--disable-gpu");
+        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
