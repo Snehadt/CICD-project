@@ -35,7 +35,7 @@ public class TestBase {
             WebDriverManager.chromedriver().setup();
            ChromeOptions options = new ChromeOptions();
             options.setHeadless(true);
-            driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
         }
         else if(browserName.equals("FF")){
             WebDriverManager.firefoxdriver().setup();
