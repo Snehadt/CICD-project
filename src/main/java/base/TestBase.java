@@ -52,4 +52,8 @@ public class TestBase {
 
         driver.get(prop.getProperty("url"));
     }
+
+    public void demoTest(){
+        System.out.println("Hi.....");
+    }
 }
