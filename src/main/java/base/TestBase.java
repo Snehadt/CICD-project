@@ -33,7 +33,7 @@ public class TestBase {
         String browserName = prop.getProperty("browser");
         if(browserName.equals("chrome")){
             WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
+           ChromeOptions options = new ChromeOptions();
             options.setHeadless(true);
             driver = new ChromeDriver(options);
         }
