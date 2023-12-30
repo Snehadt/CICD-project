@@ -44,6 +44,7 @@ public class TestBase {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("--disable-gpu");
+        options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
