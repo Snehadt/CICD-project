@@ -35,8 +35,9 @@ public class TestBase {
         String browserName = prop.getProperty("browser");
         dc = new DesiredCapabilities();
         if(browserName.equals("chrome")){
-         //   System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver");
-            WebDriverManager.chromedriver().setup();
+           System.setProperty("webdriver.chrome.driver",
+                   "/usr/bin/google-chrome");
+           // WebDriverManager.chromedriver().setup();
         }
         else if(browserName.equals("FF")){
             WebDriverManager.firefoxdriver().setup();
