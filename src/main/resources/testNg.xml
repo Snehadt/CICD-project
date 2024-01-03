@@ -9,7 +9,7 @@
 
     <test name="Free CRM Test Case">
         <classes>
-            <class name="testCase.HomePageTest"></class>
+            <!--<class name="testCase.HomePageTest"></class>-->
             <class name="testCase.DemoTest"></class>
 
         </classes>

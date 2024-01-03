@@ -37,6 +37,7 @@ public class TestBase {
         if(browserName.equals("chrome")){
            System.setProperty("webdriver.chrome.driver",
                    "/usr/bin/google-chrome");
+
            // WebDriverManager.chromedriver().setup();
         }
         else if(browserName.equals("FF")){
